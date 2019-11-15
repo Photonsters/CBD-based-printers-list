@@ -1,2 +1,6 @@
-# Orbeaters
-Project page dedicated to hold the firmware and share the differences of Orbeat Printers
+# CBD based printers
+
+- Phenom, Peopoly [/Phenom/]
+- Mars, Elegoo
+- Orbeat, Kelant
+- Photon Classic, Anycubic
