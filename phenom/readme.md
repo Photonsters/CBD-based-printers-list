@@ -2,4 +2,4 @@
 
 - Universal Network Sender
 
-### [Firmware archive](/firmware)
+### [Firmware archive](/firmware-archive)
