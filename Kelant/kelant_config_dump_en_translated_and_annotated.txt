@@ -1,0 +1,51 @@
+;;Version: V4.2.8_LCDL /1920x1080 /F2.0 /KELANT CONFIG
+
+; --------- IMPORTANT NOTES --------- 
+;
+; - This file can be used as is to restore the settings on a KELANT or one can create a new txt file and copy commands as needed
+; - Commands can also be commented out by preceding them with a  ;  (lines that start with  ;  are ignored by the machine)
+; - To apply changes on a machine, print this or your own txt file on the machine
+;
+; M8513 erases the eeprom meaning any stored z level offsets are deleted and one needs to set the plate zero again 
+; M8500 commits the file commands to the EEPROM, if this is omited on the file the changes will revert on power cycle
+;
+; ----------------------------------
+; KUDOS: 220602 - Translation (yandex auto-translation) and notes by x3msnake, use these settings at your own risk
+; -----------------------------------
+
+M8513				; Clear the previous configuration parameters, restore the parameters to factory settings, and re-configure the parameters
+M8004 I-1			; Z motor direction
+M8005 Z0			; Z axis 0: extrusion head movement 1: platform movement
+M8006 I40			; Starting speed
+M8007 I25			; Rail bending speed
+M8008 I1000			; Acceleration
+M8010 S0.000625		; Z mm per step
+M8013 I5			; Z maximum speed
+M8015 I10			; Z first zero return speed
+M8016 I6			; Z second zero return speed
+M8015 T2			; Z slow rising speed
+M8016 T6			; Z fast rising and falling speed
+M8016 D0			; The number of milliseconds to wait after Z rises
+M8030 T-1			; Fan 2 control, 1: Follow exposure 0: Normally closed -1: Normally open
+M8030 S4			; LED control, 1: Normally open 0: normally closed 2: Follow the model printing
+M8070 S3.000000		; Each time Z slowly rises, the moving distance
+M8071 X1920 Y1080	; Projection resolution
+M8070 T10			; Projector warm-up time
+M8070 Z7.000000		; The distance moved each time Z rises
+M8070 I9600			; Projector baud rate
+M8026 I150.000000	; Z maximum stroke
+M8029 I0			; XY limit 0: Minimum limit 1: Maximum limit 2: Bilateral limit
+M8029 T0			; Limit wiring 0: Limit normally open 1: limit normally closed
+M8029 S0			; Z limit type 0: Minimum limit 1: Maximum limit
+M8029 C0			; Action after XYZ homing 0: Return to zero (0,0,0) 1: Stop at the limit position
+M8030 C0			; Action after XYZ homing 0: Return to zero (0,0,0) 1: Stop at the limit position
+M8030 I-2			; fan self-starting temperature
+M8034 I1			; Whether the folder is supported or not
+M8083 I0			; whether to enable automatic leveling
+M8084 Z0.000000		; Delta Z offset, 0: No offset, the stroke is determined by setting Z to zero, not 0, the stroke is triggered by the leveling trigger position + offset value
+M8085 I1000			; Boot logo duration, minimum 100ms, maximum 6000ms
+M8085 T0			; Screensaver standby waiting time, in seconds
+M8087 I0 T0			; I: The time from the effective direction to the effective pulse (ns), T: The shortest hold time of the pulse (ns). If there is no external driver, please set all to 0
+M9003 "CBD"			; Printer builder name
+M8500				; Save configuration
+
